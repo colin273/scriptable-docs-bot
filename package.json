@@ -1,0 +1,21 @@
+{
+  "name": "scriptable-docs-bot",
+  "version": "1.0.0",
+  "description": "A bot to search through the Scriptable documentation bundled with the app.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "scriptable",
+    "bot"
+  ],
+  "author": "FifiTheBulldog",
+  "license": "MIT",
+  "dependencies": {
+    "discord-reply": "^0.1.2",
+    "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
+    "require-all": "^3.0.0"
+  }
+}
