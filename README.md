@@ -7,7 +7,7 @@ This bot is a work in progress. Currently its only function is reading the Scrip
 Made by FifiTheBulldog for the [r/Scriptable](https://reddit.com/r/Scriptable) Discord server.
 
 ## Setting up
-This bot runs on [Node.JS](https://nodejs.org) using [Discord.JS](https://discord.js.org) to communicate with the Discord API.
+This bot runs on [Node.JS](https://nodejs.org), using [Discord.JS](https://discord.js.org) to communicate with the Discord API.
 
 To install the bot, run the following commands in a terminal:
 
@@ -21,6 +21,6 @@ For example, if the bot's token is `abc.def`, then `.env` would look like this:
 
     DISCORD_TOKEN="abc.def"
 
-Edit `preferences.json` to change the path to the folder containing the Scriptable documentation files, which are pulled from the Scriptable for Mac beta. On macOS, the path is `/Applications/Scriptable.app/Contents/Resources/docs`. On other platforms, this will need to be changed. The documentation files are not included with this repository because Scriptable is not under an open source license, but the app can be downloaded from here: https://scriptable.app/mac-beta
+Edit `preferences.json` to change the path to the folder containing the Scriptable documentation files, which are pulled from the Scriptable for Mac beta. On macOS, the path is `/Applications/Scriptable.app/Contents/Resources/docs`. On other platforms, this will need to be changed. The documentation files are not included with this repository because Scriptable is not under an open-source license, but the app can be downloaded from here: https://scriptable.app/mac-beta
 
 Run `node .` in the terminal to start the bot.
