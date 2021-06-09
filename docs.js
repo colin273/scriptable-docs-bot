@@ -1,4 +1,4 @@
-const toBackticks = require('./code-to-backticks.js')
+const toBackticks = require('./html-to-md.js')
 
 module.exports = (arguments, embed, docsPages) => {
     const docsThings = arguments[1].split(".")
@@ -25,7 +25,13 @@ module.exports = (arguments, embed, docsPages) => {
                     potentialItems.push(detail)
                 }
             }
-            actualDocsItem = potentialItems.filter(pageItem => pageItem.id === indexItem.pageEntryId)[0]
+            potentialItems = potentialItems.filter(pageItem => pageItem.id === indexItem.pageEntryId)
+            if (potentialItems.length === 1) {
+                actualDocsItem = potentialItems[0]
+            } else {
+                // Pick one based on another argument, or implement some sort of page turning reaction thingy, idk
+                // I need sleep :weary:
+            }
             embed.setAuthor(" of " + parentItem.shortName)
             embed.author.url = parentItem.url
         }

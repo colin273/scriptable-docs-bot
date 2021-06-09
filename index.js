@@ -1,3 +1,5 @@
+const { readFileSync } = require('fs')
+
 require('dotenv').config()
 const discord = require('discord.js')
 require('discord-reply')
@@ -27,17 +29,28 @@ client.on("message", message => {
         const cmd = content.match(new RegExp("\\" + prefix + "([a-z\d]+)"))[1]
         switch(cmd) {
             case "docs":
-                const embed = new discord.MessageEmbed()
+                const docsEmbed = new discord.MessageEmbed()
                 const arguments = content.split(/\s+/)
                 try {
-                    message.lineReplyNoMention(docsEmbedMaker(arguments, embed, docsPages)).catch(error => {
+                    message.lineReplyNoMention(docsEmbedMaker(arguments, docsEmbed, docsPages)).catch(error => {
                         const errorEmbed = new discord.MessageEmbed()
                         errorEmbed.setColor("RED")
                         errorEmbed.setTitle("Error")
                         errorEmbed.setDescription(error)
                         message.lineReplyNoMention(errorEmbed)
                     })
-                } catch(error) {}
+                } catch(error) {
+                    console.error(error)
+                }
+                break
+            case "docshelp":
+                const helpEmbed = new discord.MessageEmbed()
+                helpEmbed.setColor("GREEN")
+                helpEmbed.setTitle("Help")
+                helpEmbed.setDescription("Commands for this bot")
+                helpEmbed.addField(prefix + "docs", readFileSync("./docs-command.md").toString().replace(/\{\{prefix\}\}/g, prefix))
+                helpEmbed.addField(prefix + "docshelp", "Display this help message.")
+                message.lineReplyNoMention(helpEmbed)
                 break
             case "shutdown":
                 if (message.author.id === "690213339862794285") {
