@@ -24,6 +24,8 @@ client.login(DISCORD_TOKEN)
 client.on("ready", () => console.log("Ready"))
 
 client.on("message", message => {
+    if (message.author.bot) return
+    
     content = message.content.trim().toLowerCase()
     if (content.startsWith(prefix)) {
         const cmd = content.match(new RegExp("\\" + prefix + "([a-z\d]+)"))[1]
